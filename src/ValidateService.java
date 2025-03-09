@@ -19,13 +19,13 @@ public class ValidateService {
     }
 
     private static void validateLogin(String login) {
-        if (!LOGIN_PATTERN.matcher(login).matches()) {
+        if (login==null || !LOGIN_PATTERN.matcher(login).matches()) {
             throw new WrongLoginException("Неверный формат логина");
         }
     }
 
     private static void validatePassword(String password, String confirmPassword) {
-        if (!PASSWORD_PATTERN.matcher(password).matches()) {
+        if (password == null || confirmPassword == null || !PASSWORD_PATTERN.matcher(password).matches()) {
             throw new WrongPasswordException("Неверный формат пароля");
         }
         if (!password.equals(confirmPassword)) {
