@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SkyproSpringHw25CollectionsApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(SkyproSpringHw25CollectionsApplication.class, args);
-	}
+        SpringApplication.run(SkyproSpringHw25CollectionsApplication.class, args);
+    }
 
 }
