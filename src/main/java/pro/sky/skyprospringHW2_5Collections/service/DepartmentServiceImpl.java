@@ -3,6 +3,7 @@ package pro.sky.skyprospringHW2_5Collections.service;
 import org.springframework.stereotype.Service;
 import pro.sky.skyprospringHW2_5Collections.model.Employee;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -17,10 +18,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Employee getEmployeeWithMaxSalary(int departmentId) {
-        return employeeService.getAll()
-                .values()
+        return employeeService.getAllEmployee()
                 .stream()
-                .filter(employees -> employees.size());
+                .filter(employee -> departmentId == employee.getDepartmentId())
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElse(null);
     }
 
     @Override

@@ -55,4 +55,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Map<String, List<Employee>> getAll() {
         return Map.of();
     }
+
+    @Override
+    public Collection<Employee> getAllEmployee() {
+        return employees.values();
+    }
 }
