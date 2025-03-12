@@ -21,24 +21,30 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Employee addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.add(firstName, lastName);
+    public Employee addEmployee(@RequestParam String firstName,
+                                @RequestParam String lastName,
+                                @RequestParam int salary,
+                                @RequestParam int departmentId) {
+        return employeeService.add(firstName, lastName, salary, departmentId);
     }
 
     @GetMapping("/remove")
-    public Employee removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.remove(firstName, lastName);
+    public Employee removeEmployee(@RequestParam String firstName,
+                                   @RequestParam String lastName,
+                                   @RequestParam int salary,
+                                   @RequestParam int departmentId) {
+        return employeeService.remove(firstName, lastName, salary, departmentId);
     }
 
     @GetMapping("/find")
-    public Employee findEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.find(firstName, lastName);
+    public Employee findEmployee(@RequestParam String firstName,
+                                 @RequestParam String lastName,
+                                 @RequestParam int salary,
+                                 @RequestParam int departmentId) {
+        return employeeService.find(firstName, lastName, salary, departmentId);
     }
 
     @GetMapping
-    //public Collection<Employee> findAll() {
-    //    return employeeService.findAll();
-    //}
     public Map<String, List<Employee>> getAll() {
         return Map.of();
     }

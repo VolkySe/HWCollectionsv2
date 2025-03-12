@@ -17,7 +17,10 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Employee getEmployeeWithMaxSalary(int departmentId) {
-        return null;
+        return employeeService.getAll()
+                .values()
+                .stream()
+                .filter(employees -> employees.size());
     }
 
     @Override

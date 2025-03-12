@@ -8,10 +8,10 @@ public class Employee {
     private int salary;
     private int departmentId;
 
-    public Employee(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+//    public Employee(String firstName, String lastName) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//    }
 
     public Employee(String firstName, String lastName, int salary, int departmentId) {
         this.firstName = firstName;
