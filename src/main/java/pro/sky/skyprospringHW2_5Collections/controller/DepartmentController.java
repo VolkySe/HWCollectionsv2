@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.skyprospringHW2_5Collections.model.Employee;
+import pro.sky.skyprospringHW2_5Collections.service.DepartmentService;
 import pro.sky.skyprospringHW2_5Collections.service.EmployeeService;
 
 import java.util.List;
@@ -12,30 +13,31 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("departments")
-public class DepartmentController extends EmployeeController {
+public class DepartmentController {
+    private final DepartmentService departmentService;
 
-    public DepartmentController(EmployeeService employeeService) {
-        super(employeeService);
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
     }
 
     @GetMapping("max-salary")
     public Employee getEmployeeWithMaxSalary(@RequestParam int departmentId) {
-        return null;
+        return departmentService.getEmployeeWithMaxSalary(departmentId);
     }
 
     @GetMapping("min-salary")
     public Employee getEmployeeWithMinSalary(@RequestParam int departmentId) {
-        return null;
+        return departmentService.getEmployeeWithMinSalary(departmentId);
     }
 
     @GetMapping("all")
     public List<Employee> getAllEmployeesInDepartment(@RequestParam int departmentId) {
-        return null;
+        return departmentService.getAllEmployeesInDepartment(departmentId);
     }
 
     @GetMapping("all-grouped")
     public Map<Integer, List<Employee>> getAllEmployeesGroupedByDepartment() {
-        return null;
+        return departmentService.getAllEmployeesGroupedByDepartment();
     }
 
 }
