@@ -7,10 +7,7 @@ import pro.sky.skyprospringHW2_5Collections.exception.EmployeeNotFoundException;
 import pro.sky.skyprospringHW2_5Collections.exception.EmployeeStorageIsFullException;
 import pro.sky.skyprospringHW2_5Collections.model.Employee;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -55,5 +52,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Collection<Employee> findAll() {
         return Collections.unmodifiableList(employeeList);
+    }
+
+    @Override
+    public Map<String, List<Employee>> getAll() {
+        return Map.of();
     }
 }
