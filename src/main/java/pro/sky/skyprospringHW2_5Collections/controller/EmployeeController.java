@@ -8,8 +8,6 @@ import pro.sky.skyprospringHW2_5Collections.model.Employee;
 import pro.sky.skyprospringHW2_5Collections.service.EmployeeService;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/employee")
@@ -30,23 +28,19 @@ public class EmployeeController {
 
     @GetMapping("/remove")
     public Employee removeEmployee(@RequestParam String firstName,
-                                   @RequestParam String lastName,
-                                   @RequestParam int salary,
-                                   @RequestParam int departmentId) {
-        return employeeService.remove(firstName, lastName, salary, departmentId);
+                                   @RequestParam String lastName) {
+        return employeeService.remove(firstName, lastName);
     }
 
     @GetMapping("/find")
     public Employee findEmployee(@RequestParam String firstName,
-                                 @RequestParam String lastName,
-                                 @RequestParam int salary,
-                                 @RequestParam int departmentId) {
-        return employeeService.find(firstName, lastName, salary, departmentId);
+                                 @RequestParam String lastName) {
+        return employeeService.find(firstName, lastName);
     }
 
     @GetMapping
-    public Map<String, List<Employee>> getAll() {
-        return Map.of();
+    public Collection<Employee> getAllEmployee() {
+        return employeeService.getAllEmployee();
     }
 
 }

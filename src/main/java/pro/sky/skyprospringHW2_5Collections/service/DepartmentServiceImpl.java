@@ -6,9 +6,10 @@ import pro.sky.skyprospringHW2_5Collections.model.Employee;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
 
     private final EmployeeService employeeService;
 
@@ -27,16 +28,25 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Employee getEmployeeWithMinSalary(int departmentId) {
-        return null;
+        return employeeService.getAllEmployee()
+                .stream()
+                .filter(employee -> departmentId == employee.getDepartmentId())
+                .min(Comparator.comparing(Employee::getSalary))
+                .orElse(null);
     }
 
     @Override
     public List<Employee> getAllEmployeesInDepartment(int departmentId) {
-        return List.of();
+        return employeeService.getAllEmployee()
+                .stream()
+                .filter(employee -> departmentId == employee.getDepartmentId())
+                .toList();
     }
 
     @Override
     public Map<Integer, List<Employee>> getAllEmployeesGroupedByDepartment() {
-        return Map.of();
+        return employeeService.getAllEmployee()
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getDepartmentId));
     }
 }
